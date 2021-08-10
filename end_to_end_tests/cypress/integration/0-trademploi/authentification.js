@@ -1,8 +1,8 @@
 // npx cypress open
 
 const URL = 'https://pole-emploi-trad-dev.firebaseapp.com'
-const LOGIN = 'agent@pe.fr'
-const PWD = 'm2g@0i10x6CP'
+const LOGIN = 'test@pe.fr'
+const PWD = 'trademploi2021'
 
 describe('Auth component', () => {
     beforeEach(() => {

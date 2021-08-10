@@ -1,7 +1,8 @@
 // npx cypress open
 const URL = 'https://pole-emploi-trad-dev.firebaseapp.com'
-const LOGIN = 'agent@pe.fr'
-const PWD = 'm2g@0i10x6CP'
+const LOGIN = 'test@pe.fr'
+const PWD = 'trademploi2021'
+
 
 describe('Choice component', () => {
 
@@ -89,5 +90,6 @@ describe('Choice component', () => {
     //cy.contains('Le formulaire d\'évaluation n\'a pas pu être envoyée, il n\'est pas possible de le resaisir. Vous allez être redirigé vers la page d\'accueil.').should('exist')
     cy.url().should('include', '/auth');
   });
+
 
 });
