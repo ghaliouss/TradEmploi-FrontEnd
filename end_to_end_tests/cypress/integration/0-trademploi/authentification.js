@@ -64,7 +64,7 @@ describe('Auth component', () => {
         cy.get('#password').type(PWD)
         cy.contains('SE CONNECTER').click()
         cy.url().should('include', '/auth')
-        cy.contains('La base de donnée est indisponible momentanément. Merci de réessayer plus tard').should("exist")
+        cy.contains('Le login ou le mot de passe sont invalides').should("exist")
     })
 
     it('user connection KO : mauvais mot de passe', () => {
@@ -76,6 +76,6 @@ describe('Auth component', () => {
         cy.get('#password').type('password error')
         cy.contains('SE CONNECTER').click()
         cy.url().should('include', '/auth')
-        cy.contains('Le mot de passe est invalide, veuillez vérifier l\'adresse web et le mot de passe').should("exist")
+        cy.contains('Le login ou le mot de passe sont invalides').should("exist")
     })
 })

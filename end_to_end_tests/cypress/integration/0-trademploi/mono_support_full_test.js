@@ -83,7 +83,7 @@ describe('Choice component', () => {
     cy.get('#question-four-yes').click();
     cy.get('#question-four-no').click();
 
-    cy.get('.question > textarea').type('test cypress');
+    cy.get('.question > textarea').type('test cypress mono support');
 
     // clic sur soumettre
     cy.get('#send-btn').click();
