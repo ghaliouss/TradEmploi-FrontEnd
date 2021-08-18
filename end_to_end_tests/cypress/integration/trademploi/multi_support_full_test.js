@@ -1,15 +1,12 @@
 // npx cypress open
 
-const URL = 'https://pole-emploi-trad-dev.firebaseapp.com'
+const URL = 'https://pole-emploi-trad-dev.firebaseapp.com/start'
 const LOGIN = 'test@pe.fr'
 const PWD = 'trademploi2021'
 
 describe('Auth component', () => {
-  beforeEach(() => {
-
-  })
-
   it('se connecter et chosir le mode multi', () => {
+    cy.clearCookies()
     cy.visit(URL)
     cy.url().should('include', '/auth')
     cy.get('#email').type(LOGIN)

@@ -1,5 +1,5 @@
 // npx cypress open
-const URL = 'https://pole-emploi-trad-dev.firebaseapp.com'
+const URL = 'https://pole-emploi-trad-dev.firebaseapp.com/start'
 const LOGIN = 'test@pe.fr'
 const PWD = 'trademploi2021'
 
@@ -30,8 +30,10 @@ describe('Choice component', () => {
     cy.get('.no-clicked').click();
     cy.get(':nth-child(2) > .option > :nth-child(3) > .speaker').click();
     cy.get('#gdpr-header > .name').click();
+    cy.contains('Cet outil de traduction instantanée traite vos données').should('exist')
     cy.get('.mat-select-arrow-wrapper').click();
     cy.get('#mat-option-0 > .mat-option-text').click();
+    cy.contains('This translation tool processes your data').should('exist')
     cy.get('.options').click();
     cy.get('#help-header > .name').click();
     cy.get('[aria-label="Suivant"]').click();
@@ -75,6 +77,7 @@ describe('Choice component', () => {
 
     // clic sur terminer la conversation
     cy.get('.end-btn').click();
+    cy.contains('Quelle a été la qualité des traductions ?').should('exist')
 
     // évaluation étoile
     cy.get(':nth-child(1) > .stars > :nth-child(4) > .mat-icon').click();

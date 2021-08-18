@@ -1,15 +1,12 @@
 // npx cypress open
 
-const URL = 'https://pole-emploi-trad-dev.firebaseapp.com'
+const URL = 'https://pole-emploi-trad-dev.firebaseapp.com/start'
 const LOGIN = 'test@pe.fr'
 const PWD = 'trademploi2021'
 
 describe('Auth component', () => {
-    beforeEach(() => {
-
-    })
-
     it('user connection OK', () => {
+        cy.clearCookies()
         cy.visit(URL)
         cy.url().should('include', '/auth')
         cy.get('#email').type(LOGIN)
@@ -21,8 +18,6 @@ describe('Auth component', () => {
         cy.get('.logout-btn').click()
         cy.url().should('include', '/start');
         cy.url().should('include', '/auth')
-
-
     })
 
     it('user try to connect with nothing values', () => {
