@@ -22,6 +22,7 @@ describe('Auth component', () => {
         cy.url().should('include', '/start');
         cy.url().should('include', '/auth')
 
+
     })
 
     it('user try to connect with nothing values', () => {
