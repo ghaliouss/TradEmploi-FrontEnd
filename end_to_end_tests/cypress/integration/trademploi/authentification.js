@@ -18,6 +18,7 @@ describe('Auth component', () => {
         cy.get('.logout-btn').click()
         cy.url().should('include', '/start');
         cy.url().should('include', '/auth')
+
     })
 
     it('user try to connect with nothing values', () => {

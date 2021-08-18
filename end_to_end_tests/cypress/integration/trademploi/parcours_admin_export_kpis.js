@@ -28,8 +28,10 @@ describe('Auth component', () => {
     cy.get('#export-kpi > .export-item-text > .export-description').should('have.text', 'Télécharger');
 
     cy.get('#export-eval > .export-item-text > .export-description').click();
-
     cy.readFile("cypress/downloads/PE_Outil_Traduction_Evaluation_2021818..csv").should("exist");
+
+    cy.get('#export-kpi > .export-item-text > .export-description').click();
+    //cy.readFile("cypress/downloads/PE_Outil_Traduction_Evaluation_2021818..csv").should("exist");
 
   });
 })
