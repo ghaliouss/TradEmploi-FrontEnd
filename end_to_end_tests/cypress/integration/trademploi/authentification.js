@@ -1,5 +1,4 @@
 // npx cypress open
-
 const URL = 'https://pole-emploi-trad-dev.firebaseapp.com/start'
 const LOGIN = 'test@pe.fr'
 const PWD = 'trademploi2021'
@@ -49,7 +48,6 @@ describe('Auth component', () => {
         cy.get('#mat-error-10').should('have.text', 'Le mot de passe doit faire au moins 6 caractères.');
         cy.get('#password').clear();
         cy.get('#password').type('test123456');
-
     })
 
     it('user connection KO : mauvais login', () => {
