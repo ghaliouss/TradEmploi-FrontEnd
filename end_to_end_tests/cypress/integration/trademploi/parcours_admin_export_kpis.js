@@ -1,21 +1,19 @@
-// npx cypress open
-
-const URL = 'https://pole-emploi-trad-dev.firebaseapp.com/start'
-const LOGIN = 'test_admin@pe.fr'
-const PWD = 'trademploi2021'
+const URL = 'https://pole-emploi-trad-dev.firebaseapp.com'
+const LOGIN = 'tmon0020'
+const PWD = 'recette1'
 
 describe('Auth component', () => {
   it('se connecter avec les habilitations admin', () => {
     cy.clearCookies()
     cy.visit(URL)
     cy.url().should('include', '/auth')
-    cy.get('#email').type(LOGIN)
-    cy.get('#password').type(PWD)
-    cy.contains('SE CONNECTER').click()
-    cy.contains('Authentification réussie').should("exist")
-    cy.url().should('include', '/modality')
-    /* ==== Generated with Cypress Studio ==== */
-    cy.get('.mat-button-wrapper').click();
+    cy.get('.t2').should('have.text', 'Connexion');
+    cy.get('.t3').should('have.text', 'Accédez au service de traduction instantanée');
+    cy.get('button').should('have.text', 'Se connecter avec Pôle Emploi');
+    cy.get('button').click();
+    cy.url().should('include', '/modality');
+
+    //cy.get('.mat-button-wrapper').click();
 
     cy.get('#settings-header > .name').should('be.visible');
     cy.get('#settings-header > .name').should('have.text', 'PARAMÈTRES');
@@ -29,9 +27,9 @@ describe('Auth component', () => {
 
     cy.get('#export-eval > .export-item-text > .export-description').click();
     cy.readFile("cypress/downloads/PE_Outil_Traduction_Evaluation_2021818..csv").should("exist");
-
+    //cy.wait(1000)
     cy.get('#export-kpi > .export-item-text > .export-description').click();
-    //cy.readFile("cypress/downloads/PE_Outil_Traduction_Evaluation_2021818..csv").should("exist");
+    cy.readFile("cypress/downloads/PE_Outil_Traduction_Evaluation_2021818..csv").should("exist");
 
   });
 })

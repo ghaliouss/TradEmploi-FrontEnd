@@ -3,5 +3,6 @@
   "viewportHeight": 900,
   "defaultCommandTimeout": 10000,
   "experimentalStudio": true,
-  "chromeWebSecurity": false
+  "chromeWebSecurity": false,
+  "force": true
 }

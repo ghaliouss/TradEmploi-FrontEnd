@@ -1,21 +1,17 @@
-// npx cypress open
-const URL = 'https://pole-emploi-trad-dev.firebaseapp.com/start'
-const LOGIN = 'test@pe.fr'
-const PWD = 'trademploi2021'
-
+const URL = 'https://pole-emploi-trad-dev.firebaseapp.com'
+const LOGIN = 'tmon0030'
+const PWD = 'recette1'
 
 describe('Choice component', () => {
-
   before(() => {
     cy.clearCookies()
-    cy.visit(URL);
-    cy.url().should('include', '/auth');
-    cy.get('#email').type(LOGIN);
-    cy.get('#password').type(PWD);
-    cy.contains('SE CONNECTER').click();
-
+    cy.visit(URL)
+    cy.url().should('include', '/auth')
+    cy.get('.t2').should('have.text', 'Connexion');
+    cy.get('.t3').should('have.text', 'Accédez au service de traduction instantanée');
+    cy.get('button').should('have.text', 'Se connecter avec Pôle Emploi');
+    cy.get('button').click();
     cy.url().should('include', '/modality');
-    cy.contains('Authentification réussie').should('exist')
 
     cy.contains('Mono support').click();
     cy.contains('CONFIRMER').click();
@@ -91,8 +87,9 @@ describe('Choice component', () => {
     // clic sur soumettre
     cy.get('#send-btn').click();
     //cy.contains('Le formulaire d\'évaluation n\'a pas pu être envoyée, il n\'est pas possible de le resaisir. Vous allez être redirigé vers la page d\'accueil.').should('exist')
-    cy.url().should('include', '/auth');
+    cy.url().should('include', '/auth')
+    cy.get('.t2').should('have.text', 'Connexion');
+    cy.get('.t3').should('have.text', 'Accédez au service de traduction instantanée');
+    cy.get('button').should('have.text', 'Se connecter avec Pôle Emploi');
   });
-
-
 });
