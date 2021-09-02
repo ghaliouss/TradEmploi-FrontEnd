@@ -1,0 +1,8 @@
+{
+  "viewportWidth": 1200,
+  "viewportHeight": 900,
+  "defaultCommandTimeout": 10000,
+  "experimentalStudio": true,
+  "chromeWebSecurity": false,
+  "force": true
+}
