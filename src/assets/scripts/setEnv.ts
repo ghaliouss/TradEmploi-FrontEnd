@@ -1,10 +1,8 @@
 /* tslint:disable */
 // @ts-nocheck
 const { writeFile, existsSync, mkdirSync } = require('fs');
-const { argv } = require('yargs');
 
 require('dotenv').config();
-const environment = argv.environment;
 
 
 function writeFileUsingFS(targetPath, environmentFileContent) {
@@ -24,17 +22,8 @@ if (!existsSync(envDirectory)) {
   mkdirSync(envDirectory);
 }
 
-writeFileUsingFS('./src/environments/environment.prod.ts', '');
 writeFileUsingFS('./src/environments/environment.ts', '');
-writeFileUsingFS('./src/environments/environment.dev.ts', '');
 writeFileUsingFS('./src/environments/authflow.ts', '');
-
-
-const isProduction = environment === 'prod';
-
-const targetPath = isProduction
-  ? './src/environments/environment.prod.ts'
-  : './src/environments/environment.ts';
 
 
 const environmentFileContent = `
@@ -49,6 +38,6 @@ export const authCodeFlowConfig: AuthConfig = ${process.env.AUTHFLOW_FILE_CONTEN
 `;
 
 
-writeFileUsingFS(targetPath, environmentFileContent);
-writeFileUsingFS('./src/environments/environment.dev.ts', environmentFileContent);
+
+writeFileUsingFS('./src/environments/environment.ts', environmentFileContent);
 writeFileUsingFS('./src/environments/authflow.ts', authflowFileContent);
