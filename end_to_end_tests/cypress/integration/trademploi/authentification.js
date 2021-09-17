@@ -1,6 +1,7 @@
 // lancer cypress dans un terminal : npx cypress open
 // via VPN, il faut tester plusieurs fois d'enregistrer le script après avoir lancer cypress
 // au premier lancement, il faut saisir soit meme le login et mot de passe, puis relancer
+// utilisation compte admin
 const URL = 'https://pole-emploi-trad-dev.firebaseapp.com'
 const LOGIN = 'tmon0030'
 const PWD = 'recette1'
