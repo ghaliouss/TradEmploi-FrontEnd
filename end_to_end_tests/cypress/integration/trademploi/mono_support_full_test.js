@@ -44,7 +44,7 @@ describe('Choice component', () => {
     cy.get('.slide-top > .mat-icon').click();
     cy.get('.fas').click();
 
-    cy.get(':nth-child(1) > .flag > .flag-icon').click();
+    cy.get(':nth-child(1) > .flag > .fi').click();
     cy.get('#choice-header > .name').click();
     cy.get('.fa').click();
 
